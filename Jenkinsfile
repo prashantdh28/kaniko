@@ -1,9 +1,5 @@
 pipeline {
 
-  options {
-    ansiColor('xterm')
-  }
-
   agent {
     kubernetes {
       yamlFile 'builder.yaml'
@@ -19,7 +15,7 @@ pipeline {
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=justmeandopensource/myweb:${BUILD_NUMBER}
+                             --destination=prashant28/myweb:${BUILD_NUMBER}
             '''
           }
         }
